@@ -2058,3 +2058,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+// ***********************background animation image code start********************************
+
+
+  const items = document.querySelectorAll('.float-item');
+
+  items.forEach(item => {
+    const randomX = Math.random() * 200 - 100; // -100 to 100
+    const randomY = Math.random() * 200 - 100;
+    const duration = Math.random() * 20 + 15; // 15s–35s
+
+    item.style.setProperty('--x', `${randomX}px`);
+    item.style.setProperty('--y', `${randomY}px`);
+    item.style.animationDuration = `${duration}s`;
+
+    // Random starting position
+    item.style.left = Math.random() * 100 + '%';
+    item.style.top = Math.random() * 100 + '%';
+  });
+
+// ***********************background animation image code end********************************

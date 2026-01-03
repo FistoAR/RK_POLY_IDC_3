@@ -1123,3 +1123,54 @@
 }
 
 }
+
+
+
+/* **********************background animation code start*****************************  */
+
+.catalog-app {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Layer holding floating images */
+.floating-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Floating images */
+.float-item {
+  position: absolute;
+  width: 60px;
+  opacity: 0.4;
+  animation: floatMove linear infinite;
+}
+
+/* Mobile size */
+@media (max-width: 768px) {
+  .float-item {
+    width: 40px;
+  }
+}
+
+/* Keyframes (actual motion is randomized via JS) */
+@keyframes floatMove {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(var(--x), var(--y)) rotate(180deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+
+
+
+
+
+/* **********************background animation code end*****************************  */
