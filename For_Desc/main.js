@@ -2061,20 +2061,55 @@ document.addEventListener("DOMContentLoaded", function () {
 // ***********************background animation image code start********************************
 
 
+  // const items = document.querySelectorAll('.float-item');
+
+  // items.forEach(item => {
+  //   const randomX = Math.random() * 200 - 100; // -100 to 100
+  //   const randomY = Math.random() * 200 - 100;
+  //   const duration = Math.random() * 20 + 15; // 15s–35s
+
+  //   item.style.setProperty('--x', `${randomX}px`);
+  //   item.style.setProperty('--y', `${randomY}px`);
+  //   item.style.animationDuration = `${duration}s`;
+
+  //   // Random starting position
+  //   item.style.left = Math.random() * 100 + '%';
+  //   item.style.top = Math.random() * 100 + '%';
+  // });
   const items = document.querySelectorAll('.float-item');
+  const layer = document.querySelector('.floating-layer');
+
+  const W = layer.offsetWidth;
+  const H = layer.offsetHeight;
+
+  const MIN_DISTANCE = 90; // control density here
+  const placed = [];
+
+  function isValid(x, y) {
+    return placed.every(p => {
+      const dx = p.x - x;
+      const dy = p.y - y;
+      return Math.sqrt(dx * dx + dy * dy) > MIN_DISTANCE;
+    });
+  }
 
   items.forEach(item => {
-    const randomX = Math.random() * 200 - 100; // -100 to 100
-    const randomY = Math.random() * 200 - 100;
-    const duration = Math.random() * 20 + 15; // 15s–35s
+    let x, y, tries = 0;
 
-    item.style.setProperty('--x', `${randomX}px`);
-    item.style.setProperty('--y', `${randomY}px`);
-    item.style.animationDuration = `${duration}s`;
+    do {
+      x = Math.random() * W;
+      y = Math.random() * H;
+      tries++;
+    } while (!isValid(x, y) && tries < 500);
 
-    // Random starting position
-    item.style.left = Math.random() * 100 + '%';
-    item.style.top = Math.random() * 100 + '%';
+    placed.push({ x, y });
+
+    item.style.left = `${x}px`;
+    item.style.top = `${y}px`;
+
+    item.style.animationDuration = `${4 + Math.random() * 3}s`;
+    item.style.animationDelay = `${Math.random() * 2}s`;
   });
 
+  window.addEventListener('resize', () => location.reload());
 // ***********************background animation image code end********************************

@@ -1127,50 +1127,102 @@
 
 
 /* **********************background animation code start*****************************  */
+/* 
+.catalog-app {
+  position: relative;
+  overflow: hidden;
+}
+
+
+.floating-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  grid-auto-rows: 80px;
+  place-items: center;
+}
+
+
+.float-item {
+  width: 60px;
+  opacity: 0.4;
+
+  animation: floatY 4s ease-in-out infinite;
+}
+
+
+.float-item:nth-child(odd) {
+  animation-duration: 5s;
+}
+.float-item:nth-child(even) {
+  animation-duration: 6s;
+}
+
+@media (max-width: 768px) {
+  .floating-layer {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    grid-auto-rows: 60px;
+  }
+
+  .float-item {
+    width: 40px;
+  }
+}
+
+@keyframes floatY {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+ */
+
 
 .catalog-app {
   position: relative;
   overflow: hidden;
 }
 
-/* Layer holding floating images */
 .floating-layer {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-/* Floating images */
 .float-item {
   position: absolute;
   width: 60px;
-  opacity: 0.4;
-  animation: floatMove linear infinite;
+  opacity: 0.35;
+
+  animation: floatSoft ease-in-out infinite;
 }
 
-/* Mobile size */
 @media (max-width: 768px) {
   .float-item {
     width: 40px;
   }
 }
 
-/* Keyframes (actual motion is randomized via JS) */
-@keyframes floatMove {
+@keyframes floatSoft {
   0% {
-    transform: translate(0, 0) rotate(0deg);
+    transform: translateY(0);
   }
   50% {
-    transform: translate(var(--x), var(--y)) rotate(180deg);
+    transform: translateY(-10px);
   }
   100% {
-    transform: translate(0, 0) rotate(360deg);
+    transform: translateY(0);
   }
 }
-
-
-
-
 
 
 /* **********************background animation code end*****************************  */
