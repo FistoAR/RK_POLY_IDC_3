@@ -1958,9 +1958,600 @@ if (document.readyState === "loading") {
  
  
 
+// ********************************************************************
 
 
 
+// ====================================================================
+// Sweet Box 4 Side IML Container
+// ====================================================================
+
+const SweetBox4SideIML = [
+  {
+    id: "4side-250g",
+    centerText: "../global assets/Images/SweetBox-4side-iml/250g/250g-sweetbox-4side-text.svg",
+    caption: "../global assets/Images/SweetBox-4side-iml/250g/caption.svg",
+    // grade: "../global assets/Images/SweetBox-4side-iml/grade.svg",
+    // specification: "../global assets/Images/SweetBox-4side-iml/specifications.svg",
+    dimension: "../global assets/Images/SweetBox-4side-iml/250g/dimension.svg",
+    weight: "../global assets/Images/SweetBox-4side-iml/250g/weight.svg",
+    grossWeight: "../global assets/Images/SweetBox-4side-iml/250g/gross-weight.svg",
+    cartonSize: "../global assets/Images/SweetBox-4side-iml/250g/carton-size.svg",
+    cartonWeight: "../global assets/Images/SweetBox-4side-iml/250g/carton-weight.svg",
+    piecesPerCarton: "../global assets/Images/SweetBox-4side-iml/250g/pieces-per-carton.svg",
+    mainImage: "../global assets/Images/SweetBox-4side-iml/250g/250-container-img.webp",
+    bgImage: "../global assets/Images/SweetBox-4side-iml/250g/background-img.webp",
+    nextBtn: "../global assets/Images/SweetBox-4side-iml/next-btn.svg",
+    prevBtn: "../global assets/Images/SweetBox-4side-iml/previous-btn.svg",
+    lightboxUrl: "../lightBox/index.html#250-gms-sweetbox-4side-container"
+  },
+  {
+    id: "4side-500g",
+    centerText: "../global assets/Images/SweetBox-4side-iml/500g/500g-sweetbox-4side-text.svg",
+    caption: "../global assets/Images/SweetBox-4side-iml/500g/caption.svg",
+    // grade: "../global assets/Images/SweetBox-4side-iml/grade.svg",
+    // specification: "../global assets/Images/SweetBox-4side-iml/specifications.svg",
+    dimension: "../global assets/Images/SweetBox-4side-iml/500g/dimension.svg",
+    weight: "../global assets/Images/SweetBox-4side-iml/500g/weight.svg",
+    grossWeight: "../global assets/Images/SweetBox-4side-iml/500g/gross-weight.svg",
+    cartonSize: "../global assets/Images/SweetBox-4side-iml/500g/carton-size.svg",
+    cartonWeight: "../global assets/Images/SweetBox-4side-iml/500g/carton-weight.svg",
+    piecesPerCarton: "../global assets/Images/SweetBox-4side-iml/500g/pieces-per-carton.svg",
+    mainImage: "../global assets/Images/SweetBox-4side-iml/500g/500-container-img.webp",
+    bgImage: "../global assets/Images/SweetBox-4side-iml/500g/background-img.webp",
+    nextBtn: "../global assets/Images/SweetBox-4side-iml/next-btn.svg",
+    prevBtn: "../global assets/Images/SweetBox-4side-iml/previous-btn.svg",
+    lightboxUrl: "../lightBox/index.html#500-gms-sweetbox-4side-container"
+  }
+];
+      const SB4SideLightboxLink = document.getElementById('sweetbox-4side-iml-360-link');
+
+let sb4CurrentIndex = 0;
+let sb4IsAnimating = false;
+let sb4AutoInterval = null;
+const SB4_AUTODELAY = 5000;
+
+function sb4UpdateImages(product) {
+  const container = document.getElementById("sb4ContainerPage");
+  if (!container) return false;
+
+  const selectors = {
+    centerText: "[data-sb4='centerText']",
+    caption: "[data-sb4='caption']",
+    grade: "[data-sb4='grade']",
+    specification: "[data-sb4='specification']",
+    dimension: "[data-sb4='dimension']",
+    weight: "[data-sb4='weight']",
+    grossWeight: "[data-sb4='grossWeight']",
+    cartonSize: "[data-sb4='cartonSize']",
+    cartonWeight: "[data-sb4='cartonWeight']",
+    piecesPerCarton: "[data-sb4='piecesPerCarton']",
+    mainImage: "[data-sb4='mainImage']",
+    bgImage: "[data-sb4='bgImage']"
+  };
+
+  let updated = 0;
+  Object.entries(selectors).forEach(([key, selector]) => {
+    const el = container.querySelector(selector);
+    if (el && product[key]) {
+      el.src = product[key];
+      updated++;
+    }
+  });
+  if (SB4SideLightboxLink && product.lightboxUrl) {
+    SB4SideLightboxLink.href = product.lightboxUrl;
+  }
+  const nextBtn = document.getElementById('sb4NextBtn');
+  const prevBtn = document.getElementById('sb4PrevBtn');
+
+  if (nextBtn && product.nextBtn) {
+    nextBtn.src = product.nextBtn;
+    updated++;
+  }
+  if (prevBtn && product.prevBtn) {
+    prevBtn.src = product.prevBtn;
+    updated++;
+  }
+
+  return updated > 0;
+}
+
+function sb4RemoveAllAnimations(elements) {
+  elements.forEach(el => {
+    el.classList.remove(
+      'sb4-content-from-top',
+      'sb4-content-to-top',
+      'sb4-container-from-bottom',
+      'sb4-container-to-bottom',
+      'sb4-fade-out',
+      'sb4-stagger-1',
+      'sb4-stagger-2',
+      'sb4-stagger-3',
+      'sb4-stagger-4',
+      'sb4-stagger-5'
+    );
+  });
+}
+
+function sb4ApplyAnimation() {
+  const container = document.getElementById("sb4ContainerPage");
+  if (!container) {
+    sb4IsAnimating = false;
+    return;
+  }
+
+  // Get all elements
+  const mainImage = container.querySelector("[data-sb4='mainImage']");
+  const bgImage = container.querySelector("[data-sb4='bgImage']");
+  const contentElements = container.querySelectorAll(
+    "[data-sb4='centerText'], [data-sb4='caption'], [data-sb4='grade'], [data-sb4='specification'], [data-sb4='dimension'], [data-sb4='weight'], [data-sb4='grossWeight'], [data-sb4='cartonSize'], [data-sb4='cartonWeight'], [data-sb4='piecesPerCarton']"
+  );
+
+  const allElements = [mainImage, ...contentElements];
+
+  // STEP 1: Remove all existing animations
+  sb4RemoveAllAnimations(allElements);
+
+  // STEP 2: Exit animations
+  // Container goes to bottom
+  if (mainImage) {
+    mainImage.classList.add('sb4-container-to-bottom');
+  }
+  
+  // Content goes to top
+  contentElements.forEach(el => {
+    el.classList.add('sb4-content-to-top');
+  });
+
+  // Background - NO ANIMATION, instant change
+  // Will swap during image update
+
+  const product = SweetBox4SideIML[sb4CurrentIndex];
+
+  // STEP 3: Wait for exit, then update images
+  setTimeout(() => {
+    const success = sb4UpdateImages(product);
+
+    if (!success) {
+      sb4IsAnimating = false;
+      return;
+    }
+
+    // Remove exit animations
+    sb4RemoveAllAnimations(allElements);
+    
+    // Background stays visible - no fade needed
+    if (bgImage) {
+      bgImage.classList.add('sb4-bg-swap');
+    }
+
+    // Force reflow
+    container.offsetHeight;
+
+    // STEP 4: Enter animations with stagger
+    // Container comes from bottom
+    if (mainImage) {
+      mainImage.classList.add('sb4-container-from-bottom');
+    }
+
+    // Content comes from top with stagger
+    contentElements.forEach((el, index) => {
+      const staggerClass = `sb4-stagger-${(index % 5) + 1}`;
+      el.classList.add('sb4-content-from-top', staggerClass);
+    });
+
+    // STEP 5: Cleanup after animation completes
+    setTimeout(() => {
+      sb4RemoveAllAnimations(allElements);
+      if (bgImage) {
+        bgImage.classList.remove('sb4-bg-swap');
+      }
+      sb4IsAnimating = false;
+    }, 900); // Wait for longest animation + stagger
+
+  }, 600); // Wait for exit animation
+}
+
+function sb4GoNext() {
+  if (sb4IsAnimating) return;
+  sb4IsAnimating = true;
+  sb4CurrentIndex = (sb4CurrentIndex + 1) % SweetBox4SideIML.length;
+  sb4ApplyAnimation();
+}
+
+function sb4GoPrev() {
+  if (sb4IsAnimating) return;
+  sb4IsAnimating = true;
+  sb4CurrentIndex = (sb4CurrentIndex - 1 + SweetBox4SideIML.length) % SweetBox4SideIML.length;
+  sb4ApplyAnimation();
+}
+
+function startSB4AutoPlay() {
+  stopSB4AutoPlay();
+  sb4AutoInterval = setInterval(() => {
+    sb4GoNext();
+  }, SB4_AUTODELAY);
+}
+
+function stopSB4AutoPlay() {
+  if (sb4AutoInterval) {
+    clearInterval(sb4AutoInterval);
+    sb4AutoInterval = null;
+  }
+}
+
+function initSB4Navigation() {
+  const container = document.getElementById("sb4ContainerPage");
+  if (!container) return;
+
+  // Load first product without animation
+  sb4UpdateImages(SweetBox4SideIML[0]);
+
+  const prevBtn = document.getElementById("sb4PrevBtn");
+  const nextBtn = document.getElementById("sb4NextBtn");
+
+  if (prevBtn) {
+    prevBtn.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      stopSB4AutoPlay();
+      sb4GoPrev();
+      setTimeout(() => startSB4AutoPlay(), 1000);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      stopSB4AutoPlay();
+      sb4GoNext();
+      setTimeout(() => startSB4AutoPlay(), 1000);
+    });
+  }
+
+  startSB4AutoPlay();
+}
+
+// Initialize when page is visible
+$('#flipbook').bind('turning', function (event, page, view) {
+  if (page === 12 || page === 13) {
+    setTimeout(() => {
+      initSB4Navigation();
+    }, 100);
+  } else {
+    stopSB4AutoPlay();
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  initSB4Navigation();
+});
+
+
+
+
+
+
+
+
+
+
+// ====================================================================
+// Sweet Box 5 Side IML Container
+// ====================================================================
+
+const SweetBox5SideIML = [
+  {
+    id: "5side-250g",
+    centerText: "../global assets/Images/Sweetbox-5side-iml/250g/sweet-box-250g-iml-text.svg",
+    caption: "../global assets/Images/SweetBox-5side-iml/250g/center-caption.svg",
+    grade: "../global assets/Images/SweetBox-5side-iml/grade.svg",
+    // specification: "../global assets/Images/SweetBox-5side-iml/specifications.svg",
+    dimension: "../global assets/Images/SweetBox-5side-iml/250g/dimension.svg",
+    weight: "../global assets/Images/SweetBox-5side-iml/250g/weight.svg",
+    grossWeight: "../global assets/Images/SweetBox-5side-iml/250g/gross-weight.svg",
+    cartonSize: "../global assets/Images/SweetBox-5side-iml/250g/carton-size.svg",
+    cartonWeight: "../global assets/Images/SweetBox-5side-iml/250g/carton-weight.svg",
+    piecesPerCarton: "../global assets/Images/SweetBox-5side-iml/250g/pieces-per-carton.svg",
+    mainImage: "../global assets/Images/SweetBox-5side-iml/250g/sweet-box-250g-container-img.webp",
+    bgImage: "../global assets/Images/SweetBox-5side-iml/250g/background.webp",
+    nextBtn: "../global assets/Images/SweetBox-5side-iml/next-btn.svg",
+    prevBtn: "../global assets/Images/SweetBox-5side-iml/previous-btn.svg",
+     lightboxUrl: "../lightBox/index.html#250-gms-sweetbox-5side-container"
+  },
+  {
+    id: "5side-500g",
+    centerText: "../global assets/Images/SweetBox-5side-iml/500g/sweet-box-500g-iml-text.svg",
+    caption: "../global assets/Images/SweetBox-5side-iml/500g/center-caption.svg",
+    grade: "../global assets/Images/SweetBox-5side-iml/grade.svg",
+    // specification: "../global assets/Images/SweetBox-5side-iml/specifications.svg",
+    dimension: "../global assets/Images/SweetBox-5side-iml/500g/dimension.svg",
+    weight: "../global assets/Images/SweetBox-5side-iml/500g/weight.svg",
+    grossWeight: "../global assets/Images/SweetBox-5side-iml/500g/gross-weight.svg",
+    cartonSize: "../global assets/Images/SweetBox-5side-iml/500g/carton-size.svg",
+    cartonWeight: "../global assets/Images/SweetBox-5side-iml/500g/carton-weight.svg",
+    piecesPerCarton: "../global assets/Images/SweetBox-5side-iml/500g/pieces-per-carton.svg",
+    mainImage: "../global assets/Images/SweetBox-5side-iml/500g/sweet-box-500g-container-img.webp",
+    bgImage: "../global assets/Images/SweetBox-5side-iml/500g/background.webp",
+    nextBtn: "../global assets/Images/SweetBox-5side-iml/next-btn.svg",
+    prevBtn: "../global assets/Images/SweetBox-5side-iml/previous-btn.svg",
+     lightboxUrl: "../lightBox/index.html#500-gms-sweetbox-5side-container"
+  }
+];
+      const SB5SideLightboxLink = document.getElementById('sweetbox-5side-iml-360-link');
+ 
+let sb5CurrentIndex = 0;
+let sb5IsAnimating = false;
+let sb5AutoInterval = null;
+const SB5_AUTODELAY = 5000;
+
+function sb5UpdateImages(product) {
+  const container = document.getElementById("sb5ContainerPage");
+  if (!container) return false;
+
+  const selectors = {
+    centerText: "[data-sb5='centerText']",
+    caption: "[data-sb5='caption']",
+    grade: "[data-sb5='grade']",
+    specification: "[data-sb5='specification']",
+    dimension: "[data-sb5='dimension']",
+    weight: "[data-sb5='weight']",
+    grossWeight: "[data-sb5='grossWeight']",
+    cartonSize: "[data-sb5='cartonSize']",
+    cartonWeight: "[data-sb5='cartonWeight']",
+    piecesPerCarton: "[data-sb5='piecesPerCarton']",
+    mainImage: "[data-sb5='mainImage']",
+    bgImage: "[data-sb5='bgImage']"
+  };
+ if (SB5SideLightboxLink && product.lightboxUrl) {
+    SB5SideLightboxLink.href = product.lightboxUrl;
+  }
+  let updated = 0;
+  Object.entries(selectors).forEach(([key, selector]) => {
+    const el = container.querySelector(selector);
+    if (el && product[key]) {
+      el.src = product[key];
+      updated++;
+    }
+  });
+
+  const nextBtn = document.getElementById('sb5NextBtn');
+  const prevBtn = document.getElementById('sb5PrevBtn');
+
+  if (nextBtn && product.nextBtn) {
+    nextBtn.src = product.nextBtn;
+    updated++;
+  }
+  if (prevBtn && product.prevBtn) {
+    prevBtn.src = product.prevBtn;
+    updated++;
+  }
+
+  return updated > 0;
+}
+
+function sb5RemoveAllAnimations(elements) {
+  elements.forEach(el => {
+    el.classList.remove(
+      'sb5-left-from-left',
+      'sb5-left-to-left',
+      'sb5-right-from-right',
+      'sb5-right-to-right',
+      'sb5-center-zoom-in',
+      'sb5-center-zoom-out',
+      'sb5-bottom-from-bottom',
+      'sb5-bottom-to-bottom',
+      'sb5-fade-out',
+      'sb5-stagger-1',
+      'sb5-stagger-2',
+      'sb5-stagger-3',
+      'sb5-stagger-4',
+      'sb5-stagger-5',
+      'sb5-stagger-6'
+    );
+  });
+}
+
+function sb5ApplyAnimation() {
+  const container = document.getElementById("sb5ContainerPage");
+  if (!container) {
+    sb5IsAnimating = false;
+    return;
+  }
+
+  // Define element positions based on your UI
+  const leftElements = container.querySelectorAll(
+    "[data-sb5='dimension'], [data-sb5='weight'], [data-sb5='grossWeight']"
+  );
+  
+  const rightElements = container.querySelectorAll(
+    "[data-sb5='cartonSize'], [data-sb5='cartonWeight'], [data-sb5='piecesPerCarton']"
+  );
+  
+  const centerElement = container.querySelector("[data-sb5='mainImage']");
+  
+  const bottomElements = container.querySelectorAll(
+    "[data-sb5='centerText'], [data-sb5='caption'], [data-sb5='grade'], [data-sb5='specification']"
+  );
+
+  const bgImage = container.querySelector("[data-sb5='bgImage']");
+
+  const allElements = [...leftElements, ...rightElements, centerElement, ...bottomElements].filter(Boolean);
+
+  // STEP 1: Remove all existing animations
+  sb5RemoveAllAnimations(allElements);
+
+  // STEP 2: Exit animations
+  // Left elements go left
+  leftElements.forEach(el => {
+    el.classList.add('sb5-left-to-left');
+  });
+
+  // Right elements go right
+  rightElements.forEach(el => {
+    el.classList.add('sb5-right-to-right');
+  });
+
+  // Center zooms out
+  if (centerElement) {
+    centerElement.classList.add('sb5-center-zoom-out');
+  }
+
+  // Bottom goes down
+  bottomElements.forEach(el => {
+    el.classList.add('sb5-bottom-to-bottom');
+  });
+
+  // Background fade
+  if (bgImage) {
+    bgImage.classList.add('sb5-bg-fade-out');
+  }
+
+  const product = SweetBox5SideIML[sb5CurrentIndex];
+
+  // STEP 3: Wait for exit, then update images
+  setTimeout(() => {
+    const success = sb5UpdateImages(product);
+
+    if (!success) {
+      sb5IsAnimating = false;
+      return;
+    }
+
+    // Remove exit animations
+    sb5RemoveAllAnimations(allElements);
+    
+    if (bgImage) {
+      bgImage.classList.remove('sb5-bg-fade-out');
+      bgImage.classList.add('sb5-bg-fade-in');
+    }
+
+    // Force reflow
+    container.offsetHeight;
+
+    // STEP 4: Enter animations with stagger
+    // Left elements come from left
+    leftElements.forEach((el, index) => {
+      const staggerClass = `sb5-stagger-${index + 1}`;
+      el.classList.add('sb5-left-from-left', staggerClass);
+    });
+
+    // Right elements come from right
+    rightElements.forEach((el, index) => {
+      const staggerClass = `sb5-stagger-${index + 1}`;
+      el.classList.add('sb5-right-from-right', staggerClass);
+    });
+
+    // Center zooms in (popup effect)
+    if (centerElement) {
+      centerElement.classList.add('sb5-center-zoom-in', 'sb5-stagger-3');
+    }
+
+    // Bottom comes from bottom
+    bottomElements.forEach((el, index) => {
+      const staggerClass = `sb5-stagger-${index + 1}`;
+      el.classList.add('sb5-bottom-from-bottom', staggerClass);
+    });
+
+    // STEP 5: Cleanup after animation completes
+    setTimeout(() => {
+      sb5RemoveAllAnimations(allElements);
+      if (bgImage) {
+        bgImage.classList.remove('sb5-bg-fade-in');
+      }
+      sb5IsAnimating = false;
+    }, 1100); // Wait for longest animation + stagger
+
+  }, 600); // Wait for exit animation
+}
+
+function sb5GoNext() {
+  if (sb5IsAnimating) return;
+  sb5IsAnimating = true;
+  sb5CurrentIndex = (sb5CurrentIndex + 1) % SweetBox5SideIML.length;
+  sb5ApplyAnimation();
+}
+
+function sb5GoPrev() {
+  if (sb5IsAnimating) return;
+  sb5IsAnimating = true;
+  sb5CurrentIndex = (sb5CurrentIndex - 1 + SweetBox5SideIML.length) % SweetBox5SideIML.length;
+  sb5ApplyAnimation();
+}
+
+function startSB5AutoPlay() {
+  stopSB5AutoPlay();
+  sb5AutoInterval = setInterval(() => {
+    sb5GoNext();
+  }, SB5_AUTODELAY);
+}
+
+function stopSB5AutoPlay() {
+  if (sb5AutoInterval) {
+    clearInterval(sb5AutoInterval);
+    sb5AutoInterval = null;
+  }
+}
+
+function initSB5Navigation() {
+  const container = document.getElementById("sb5ContainerPage");
+  if (!container) return;
+
+  // Load first product without animation
+  sb5UpdateImages(SweetBox5SideIML[0]);
+
+  const prevBtn = document.getElementById("sb5PrevBtn");
+  const nextBtn = document.getElementById("sb5NextBtn");
+
+  if (prevBtn) {
+    prevBtn.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      stopSB5AutoPlay();
+      sb5GoPrev();
+      setTimeout(() => startSB5AutoPlay(), 1000);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      stopSB5AutoPlay();
+      sb5GoNext();
+      setTimeout(() => startSB5AutoPlay(), 1000);
+    });
+  }
+
+  startSB5AutoPlay();
+}
+
+// Initialize when page is visible
+$('#flipbook').bind('turning', function (event, page, view) {
+  if (page === 14 || page === 15) {
+    console.log("its animating");
+    
+     
+    setTimeout(() => {
+      initSB5Navigation();
+    }, 100);
+  } else {
+    stopSB5AutoPlay();
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  initSB5Navigation();
+});
+
+
+
+
+
+
+
+// *********************************************************************
 
 
 
@@ -1973,6 +2564,28 @@ link.addEventListener('click', () => {
 link.addEventListener('touchend', () => {
   window.open(link.href, '_blank');
 });
+
+const linkSweetBox4SideIML = document.getElementById('sweetbox-4side-iml-360-link');
+
+linkSweetBox4SideIML.addEventListener('click', () => {
+  window.open(linkSweetBox4SideIML.href, '_blank');
+});
+
+linkSweetBox4SideIML.addEventListener('touchend', () => {
+  window.open(linkSweetBox4SideIML.href, '_blank');
+});
+
+
+const linkSweetBox5SideIML = document.getElementById('sweetbox-5side-iml-360-link');
+
+linkSweetBox5SideIML.addEventListener('click', () => {
+  window.open(linkSweetBox5SideIML.href, '_blank');
+});
+
+linkSweetBox5SideIML.addEventListener('touchend', () => {
+  window.open(linkSweetBox5SideIML.href, '_blank');
+});
+
 
 const linkrs = document.getElementById('rs-360-link');
 

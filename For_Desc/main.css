@@ -1033,8 +1033,354 @@
 
 
 
+/* **************************************************************************************************  */
 
 
+
+/* ====================================================================
+   Sweet Box 4 Side IML - Custom Animations
+   Container: Bottom to Top
+   Text/Content: Top to Bottom
+====================================================================  */
+/* Fade Out Animation */
+@keyframes sb4FadeOut {
+  0% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateY(0);
+  }
+}
+
+/* Container Image - Comes from Bottom, Goes to Bottom */
+@keyframes sb4ContainerFromBottom {
+  0% { 
+    opacity: 0; 
+    transform: translateY(100px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes sb4ContainerToBottom {
+  0% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateY(100px);
+  }
+}
+
+/* Text/Content - Comes from Top, Goes to Top */
+@keyframes sb4ContentFromTop {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-80px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes sb4ContentToTop {
+  0% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateY(-80px);
+  }
+}
+
+/* Background - NO ANIMATION, just instant swap */
+.sb4-bg-swap {
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+/* Apply Classes */
+.sb4-fade-out {
+  animation: sb4FadeOut 0.4s ease-out forwards !important;
+}
+
+.sb4-container-from-bottom {
+  animation: sb4ContainerFromBottom 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+}
+
+.sb4-container-to-bottom {
+  animation: sb4ContainerToBottom 0.5s ease-in forwards !important;
+}
+
+.sb4-content-from-top {
+  animation: sb4ContentFromTop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+}
+
+.sb4-content-to-top {
+  animation: sb4ContentToTop 0.5s ease-in forwards !important;
+}
+
+/* Button Styles */
+#sb4NextBtn, #sb4PrevBtn {
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: transform !important;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+#sb4NextBtn:hover, #sb4PrevBtn:hover {
+  transform: scale(1.08) !important;
+  filter: brightness(1.15) !important;
+}
+
+#sb4NextBtn:active, #sb4PrevBtn:active {
+  transform: scale(0.95) !important;
+}
+
+[data-sb4] {
+  will-change: transform, opacity !important;
+}
+
+/* Stagger Animation Delays */
+.sb4-stagger-1 {
+  animation-delay: 0s !important;
+}
+
+.sb4-stagger-2 {
+  animation-delay: 0.1s !important;
+}
+
+.sb4-stagger-3 {
+  animation-delay: 0.2s !important;
+}
+
+.sb4-stagger-4 {
+  animation-delay: 0.3s !important;
+}
+
+.sb4-stagger-5 {
+  animation-delay: 0.4s !important;
+}
+/* ====================================================================
+   Sweet Box 5 Side IML Animations
+==================================================================== */
+/* ====================================================================
+   Sweet Box 5 Side IML - Custom Animations
+   Left Side Icons: Left to Right
+   Right Side Icons: Right to Left
+   Center Image: Zoom In/Out (Popup Effect)
+   Bottom Text: Bottom to Top
+==================================================================== */
+/* Fade Out Animation */
+@keyframes sb5FadeOut {
+  0% { 
+    opacity: 1; 
+  }
+  100% { 
+    opacity: 0; 
+  }
+}
+
+/* Left Side - Comes from Left, Goes to Left */
+@keyframes sb5LeftFromLeft {
+  0% { 
+    opacity: 0; 
+    transform: translateX(-100px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateX(0);
+  }
+}
+
+@keyframes sb5LeftToLeft {
+  0% { 
+    opacity: 1; 
+    transform: translateX(0);
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateX(-100px);
+  }
+}
+
+/* Right Side - Comes from Right, Goes to Right */
+@keyframes sb5RightFromRight {
+  0% { 
+    opacity: 0; 
+    transform: translateX(100px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateX(0);
+  }
+}
+
+@keyframes sb5RightToRight {
+  0% { 
+    opacity: 1; 
+    transform: translateX(0);
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateX(100px);
+  }
+}
+
+/* Center Image - Zoom In (Popup), Zoom Out */
+@keyframes sb5CenterZoomIn {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.5);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+}
+
+@keyframes sb5CenterZoomOut {
+  0% { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+  100% { 
+    opacity: 0; 
+    transform: scale(0.5);
+  }
+}
+
+/* Bottom Text - Comes from Bottom, Goes to Bottom */
+@keyframes sb5BottomFromBottom {
+  0% { 
+    opacity: 0; 
+    transform: translateY(80px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes sb5BottomToBottom {
+  0% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateY(80px);
+  }
+}
+
+/* Background - NO ANIMATION, just instant swap */
+.sb5-bg-swap {
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+/* Apply Classes */
+.sb5-fade-out {
+  animation: sb5FadeOut 0.4s ease-out forwards !important;
+}
+
+/* Left Side Animations */
+.sb5-left-from-left {
+  animation: sb5LeftFromLeft 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+}
+
+.sb5-left-to-left {
+  animation: sb5LeftToLeft 0.5s ease-in forwards !important;
+}
+
+/* Right Side Animations */
+.sb5-right-from-right {
+  animation: sb5RightFromRight 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+}
+
+.sb5-right-to-right {
+  animation: sb5RightToRight 0.5s ease-in forwards !important;
+}
+
+/* Center Zoom Animations */
+.sb5-center-zoom-in {
+  animation: sb5CenterZoomIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+  transform-origin: center !important;
+}
+
+.sb5-center-zoom-out {
+  animation: sb5CenterZoomOut 0.5s ease-in forwards !important;
+  transform-origin: center !important;
+}
+
+/* Bottom Animations */
+.sb5-bottom-from-bottom {
+  animation: sb5BottomFromBottom 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+}
+
+.sb5-bottom-to-bottom {
+  animation: sb5BottomToBottom 0.5s ease-in forwards !important;
+}
+
+/* Button Styles */
+#sb5NextBtn, #sb5PrevBtn {
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: transform !important;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+#sb5NextBtn:hover, #sb5PrevBtn:hover {
+  transform: scale(1.08) !important;
+  filter: brightness(1.15) !important;
+}
+
+#sb5NextBtn:active, #sb5PrevBtn:active {
+  transform: scale(0.95) !important;
+}
+
+[data-sb5] {
+  will-change: transform, opacity !important;
+}
+
+/* Stagger Animation Delays */
+.sb5-stagger-1 {
+  animation-delay: 0s !important;
+}
+
+.sb5-stagger-2 {
+  animation-delay: 0.08s !important;
+}
+
+.sb5-stagger-3 {
+  animation-delay: 0.16s !important;
+}
+
+.sb5-stagger-4 {
+  animation-delay: 0.24s !important;
+}
+
+.sb5-stagger-5 {
+  animation-delay: 0.32s !important;
+}
+
+.sb5-stagger-6 {
+  animation-delay: 0.40s !important;
+}
+
+/* *********************************************************************************************** */
 
 
 

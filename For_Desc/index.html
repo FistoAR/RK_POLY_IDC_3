@@ -757,8 +757,8 @@ input[type="number"]:focus {
 
 
  <!-- =====================================================page 4 side IML Rought================================================================= -->
-<!-- 
-<div class="page">
+
+<!-- <div class="page">
     <img src="../global assets/Images/SweetBox-4side-iml/logo.svg" alt="logo" class="absolute w-[10%] left-[4%] top-[2%]"/>
     <img src="../global assets/Images/SweetBox-4side-iml/top-text.svg" alt="text" class="absolute w-[20%] left-[15%] top-[3%]"/>
     <img src="../global assets/Images/SweetBox-4side-iml/250ml/background-img.webp" alt="background" class="absolute w-[100%] h-[100%] left-[0%] top-[0%] z-[-1]"/>
@@ -1171,10 +1171,105 @@ input[type="number"]:focus {
 </div>
 
 <!-- =====================================================page 5.1 end================================================================= -->
-  <div class="page">
-          <img src="../global assets/Images/Right-side-Product-page/4side-left.webp" alt="sweetbox-4-side-IML" class="absolute top-0 right-0 w-[100%] h-[100%]"/>
 
+<div class="page" id="sb4ContainerPage">
+  <!-- Background Image -->
+  <img data-sb4="bgImage" 
+       src="../global assets/Images/SweetBox-4side-iml/250g/background-img.webp" 
+       alt="background" 
+       class="absolute top-0 left-0 w-full h-full object-cover z-0"/>
+  
+  <!-- Logo and Top Text -->
+  <img src="../global assets/Images/SweetBox-4side-iml/logo.svg" 
+       alt="logo" 
+       class="absolute top-[4%] left-[3.5%] w-[8%] z-10"/>
+  
+  <img src="../global assets/Images/SweetBox-4side-iml/top-text.svg" 
+       alt="top-text" 
+       class="absolute top-[4%] left-[13.5%] w-[27%] z-10"/>
+
+  <!-- Content Wrapper -->
+  <div class="sb4-content-wrapper relative w-full h-full">
+    
+    <!-- Top Section - Product Name and Caption -->
+    <img data-sb4="centerText" 
+         src="../global assets/Images/SweetBox-4side-iml/250g/250g-text.svg" 
+         alt="product-name" 
+         class="absolute top-[13%] left-[5%] w-[50%] z-10"/>
+    
+    <img data-sb4="caption" 
+         src="../global assets/Images/SweetBox-4side-iml/250g/caption.svg" 
+         alt="caption" 
+         class="absolute top-[30%] left-[5%] w-[75%] z-10"/>
+
+    <!-- Main Product Image - Right Side -->
+     
+      <a id="sweetbox-4side-iml-360-link"  target="_blank" href="../lightBox/index.html#500-gms-sweet-box-4side-iml" >
+                 <img src="../global assets/Images/commonThings/360-icon.webp" alt="360-icon" class="absolute top-[54%] left-[80%] w-[6%] z-[11] infinite-zoom"/>
+                
+    <img data-sb4="mainImage" 
+         src="../global assets/Images/SweetBox-4side-iml/250g/250g-container.webp" 
+         alt="main-container" 
+         class="absolute top-[48%] right-[9%] w-[65%] z-10"/>
+    </a>
+    <!-- Left Column - Specifications -->
+    <img data-sb4="dimension" 
+         src="../global assets/Images/SweetBox-4side-iml/250g/dimension.svg" 
+         alt="dimension" 
+         class="absolute top-[42%] left-[3%] w-[22%] z-10"/>
+    
+    <img data-sb4="weight" 
+         src="../global assets/Images/SweetBox-4side-iml/250g/weight.svg" 
+         alt="weight" 
+         class="absolute top-[42%] left-[27%] w-[22%] z-10"/>
+    
+    <img data-sb4="grossWeight" 
+         src="../global assets/Images/SweetBox-4side-iml/250g/gross-weight.svg" 
+         alt="gross-weight" 
+         class="absolute top-[42%] left-[51%] w-[22%] z-10"/>
+    
+    <!-- Right Column - Carton Details -->
+    <img data-sb4="cartonSize" 
+         src="../global assets/Images/SweetBox-4side-iml/250g/carton-size.svg" 
+         alt="carton-size" 
+         class="absolute top-[42%] left-[75%] w-[22%] z-10"/>
+    
+    <img data-sb4="cartonWeight" 
+         src="../global assets/Images/SweetBox-4side-iml/250g/carton-weight.svg" 
+         alt="carton-weight" 
+         class="absolute top-[50%] left-[3%] w-[22%] z-10"/>
+    
+    <img data-sb4="piecesPerCarton" 
+         src="../global assets/Images/SweetBox-4side-iml/250g/pieces-per-carton.svg" 
+         alt="pieces-per-carton" 
+         class="absolute top-[50%] left-[27%] w-[22%] z-10"/>
   </div>
+
+  <!-- Navigation Buttons -->
+  <div class="sb4-nav ">
+    <img id="sb4PrevBtn" 
+         src="../global assets/Images/SweetBox-4side-iml/previous-btn.svg" 
+         alt="previous" 
+         class="absolute bottom-[15%] left-[20%] w-[8%] cursor-pointer hover:scale-105 transition-transform"/>
+    
+    <img id="sb4NextBtn" 
+         src="../global assets/Images/SweetBox-4side-iml/next-btn.svg" 
+         alt="next" 
+         class="absolute bottom-[15%] right-[5%] z-[11] w-[8%] cursor-pointer hover:scale-105 transition-transform"/>
+  </div>
+
+  <!-- Page Number -->
+  <img src="../global assets/Images/commonThings/05.svg" 
+       alt="page-number" 
+       class="absolute bottom-[2%] right-[5%] w-[2%] z-10"/>
+  
+  <!-- Shadow -->
+  <img src="../global assets/Images/RoundSquareContainer/rs-shadow-img.webp" 
+       alt="shadow" 
+       class="absolute top-0 left-[-4.5%] h-full w-auto z-5 shadow-img"/>
+</div>
+
+
 
  <div class="page">
       <img src="../global assets/Images/Right-side-Product-page/sweetbox-4-side-IML.webp" alt="sweetbox-4-side-IML" class="absolute top-0 right-0 w-[100%] h-[100%]"/>
@@ -1185,36 +1280,133 @@ input[type="number"]:focus {
   <!-- =====================================================page 6 Start================================================================= -->
 
 
- <div class="page ">
-          <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/background.webp" alt="background" class="w-[100%] h-[100%]"/>
-           <img src="../global assets/Images/SweetBox-IML/RK-Poly-logo.webp" alt="logo" class="absolute top-[4%] left-[5%] w-[8%]"/>
-           <img src="../global assets/Images/SweetBox-IML/sweetbox-IML-top-text.svg" alt="oval-container" class="absolute top-[4%] left-[15%] w-[27%]"/>
-          
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/sweetbox-500-iml-text.webp" alt="sweet-box-250g-text" class=" absolute top-[16%] left-[25%] w-[50%] h-auto page-8-up" ></img>
-           
-          
-            <a id="sb-iml-360-link"  target="_blank" href="../lightBox/index.html#500-gms-sweet-box-iml" >
-                 <img src="../global assets/Images/commonThings/360-icon.webp" alt="360-icon" class="absolute top-[40%] left-[47%] w-[6%] z-[11] infinite-zoom"/>
-                 <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/sweet-box-500g-container-img.webp" alt="container" class="absolute bottom-[16%] left-[52%] w-[60%]" style="transform: translateX(-50%);"/>
-           </a>
- 
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/center-caption.svg" alt="content" class="absolute bottom-[17%] left-[15%] w-[70%] page-8-down " />
-           <img src="../global assets/Images/SweetBox-IML/grade.svg" alt="grade" class="absolute bottom-[7%] left-[35%] w-[30%] page-8-down" />
-           
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/dimension.svg" alt="export" class="absolute top-[16%] left-[5%] w-[20%] popup_images8"/>
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/weight.svg" alt="export" class="absolute top-[30%] left-[5%] w-[20%] popup_images8"/>
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/gross-weight.svg" alt="export" class="absolute top-[45%] left-[5%] w-[20%] popup_images8"/>
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/carton-size.svg" alt="export" class="absolute top-[16%] right-[5%] w-[20%] popup_images8"/>
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/carton-weight.svg" alt="export" class="absolute top-[30%] right-[5%] w-[20%] popup_images8"/>
-           <img src="../global assets/Images/SweetBox-IML/sweetBox-IML-500gms/pieces-per-carton.svg" alt="export" class="absolute top-[45%] right-[5%] w-[20%] popup_images8"/>
- 
-        
-            <img src="../global assets/Images/commonThings/05.svg" alt="bottom"
-              class="absolute bottom-[2%] left-[5%] w-[2%] z-[2]" />
-            <img src="../global assets/Images/shade/leftShade.webp" alt="" class="shadow-image absolute right-[-2%] top-0 h-[100%] z-2 shadow-img" >
-        </div>
 
- 
+
+
+<div class="page" id="sb5ContainerPage">
+  <!-- Background Image -->
+  <img data-sb5="bgImage" 
+       data-fade-only 
+       src="../global assets/Images/SweetBox-5side-iml/250g/background.webp" 
+       alt="background" 
+       class="absolute top-0 left-0 w-full h-full object-cover z-0"/>
+  
+  <!-- Logo and Top Text -->
+  <img src="../global assets/Images/Sweetbox-5side-iml/RK-Poly-logo.webp" 
+       alt="logo" 
+       class="absolute top-[3.5%] left-[3.5%] w-[8%] z-10"/>
+  
+  <img src="../global assets/Images/SweetBox-5side-iml/sweetbox-IML-top-text.svg" 
+       alt="top-text" 
+       class="absolute top-[4%] left-[13.5%] w-[27%] z-10"/>
+
+  <!-- Content Wrapper -->
+  <div class="sb5-content-wrapper relative w-full h-full">
+    
+    <!-- Top Section - Product Name and Caption -->
+    <img data-sb5="centerText" 
+         src="../global assets/Images/SweetBox-5side-iml/250g/250g-text.svg" 
+         alt="product-name" 
+         class="absolute top-[18%] left-[25%] w-[50%] z-10"/>
+    
+    <img data-sb5="caption" 
+         src="../global assets/Images/SweetBox-5side-iml/250g/caption.svg" 
+         alt="caption" 
+         class="absolute bottom-[15%] left-[10%] w-[80%] z-10"/>
+
+    <!-- Main Product Image - Right Side -->
+
+      <a id="sweetbox-5side-iml-360-link"  target="_blank" href="../lightBox/index.html#500-gms-sweet-box-5side-iml" >
+                 <img src="../global assets/Images/commonThings/360-icon.webp" alt="360-icon" class="absolute top-[40%] left-[22%] w-[6%] z-[11] infinite-zoom"/>
+                
+                <img data-sb5="mainImage" 
+                 src="../global assets/Images/SweetBox-5side-iml/250g/250g-container.webp" 
+                 alt="main-container" 
+                 class="absolute top-[35%] left-[29%] w-[42%] z-10"/>
+
+        </a>
+                 
+
+    <!-- Grade and Specifications -->
+    <img data-sb5="grade" 
+         src="../global assets/Images/SweetBox-5side-iml/grade.svg" 
+         alt="grade" 
+         class="absolute bottom-[5%] left-[30%] w-[40%] z-10"/>
+    
+    <!-- <img data-sb5="specification" 
+         src="../global assets/Images/SweetBox-5side-iml/specifications.svg" 
+         alt="specifications" 
+         class="absolute top-[53%] left-[5%] w-[19%] z-10"/> -->
+    
+    <!-- Left Column - Specifications -->
+    <img data-sb5="dimension" 
+         src="../global assets/Images/SweetBox-5side-iml/250g/dimension.svg" 
+         alt="dimension" 
+         class="absolute top-[20%] left-[5%] w-[18%] z-10"/>
+    
+    <img data-sb5="weight" 
+         src="../global assets/Images/SweetBox-5side-iml/250g/weight.svg" 
+         alt="weight" 
+         class="absolute top-[35%] left-[5%] w-[18%] z-10"/>
+    
+    <img data-sb5="grossWeight" 
+         src="../global assets/Images/SweetBox-5side-iml/250g/gross-weight.svg" 
+         alt="gross-weight" 
+         class="absolute top-[50%] left-[5%] w-[18%] z-10"/>
+    
+    <!-- Right Column - Carton Details -->
+    <img data-sb5="cartonSize" 
+         src="../global assets/Images/SweetBox-5side-iml/250g/carton-size.svg" 
+         alt="carton-size" 
+         class="absolute top-[20%] right-[5%] w-[18%] z-10"/>
+    
+    <img data-sb5="cartonWeight" 
+         src="../global assets/Images/SweetBox-5side-iml/250g/carton-weight.svg" 
+         alt="carton-weight" 
+         class="absolute top-[35%] right-[5%] w-[18%] z-10"/>
+    
+    <img data-sb5="piecesPerCarton" 
+         src="../global assets/Images/SweetBox-5side-iml/250g/pieces-per-carton.svg" 
+         alt="pieces-per-carton" 
+         class="absolute top-[50%] right-[5%] w-[18%] z-10"/>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="sb5-nav  z-20">
+    <img id="sb5PrevBtn" 
+         src="../global assets/Images/Sweetbox-5side-iml/previous-btn.svg" 
+         alt="previous" 
+         class="absolute bottom-[25%] left-[10%] w-[8%] cursor-pointer hover:scale-105 transition-transform"/>
+    
+    <img id="sb5NextBtn" 
+         src="../global assets/Images/SweetBox-5side-iml/next-btn.svg" 
+         alt="next" 
+         class="absolute bottom-[25%] right-[10%] w-[8%] cursor-pointer hover:scale-105 transition-transform"/>
+  </div>
+
+  <!-- Page Number and Website Link -->
+  <img src="../global assets/Images/commonThings/06.svg" 
+       alt="page-number" 
+       class="absolute bottom-[2%] right-[5%] w-[2%] z-10"/>
+  
+  <a href="https://www.rkpolyproducts.com" target="_blank">
+    <img src="../global assets/Images/commonThings/bottom-website-text.svg" 
+         alt="website" 
+         class="absolute bottom-[2%] left-[5%] w-[17%] z-10"/>
+  </a>
+  
+  <!-- Shadow -->
+  <!-- <img src="../global assets/Images/shade/leftShade.webp" 
+       alt="shadow" 
+       class="absolute right-0 top-0 h-full z-5 shadow-img"/> -->
+</div>
+
+
+
+
+
+
+
 <!-- =====================================================page 6 end================================================================= -->
 
   <!-- =====================================================page 6.1 Start================================================================= -->
@@ -2282,7 +2474,50 @@ $(document).ready(function () {
   }, 5000);
 </script>
 
+<script>
+// ***********************background animation image code start********************************
+document.addEventListener('DOMContentLoaded', function() {
+  const items = document.querySelectorAll('.float-item');
+  const layer = document.querySelector('.floating-layer');
 
+  if (!layer || items.length === 0) return;
+
+  const W = layer.offsetWidth;
+  const H = layer.offsetHeight;
+
+  const MIN_DISTANCE = 90; // control density here
+  const placed = [];
+
+  function isValid(x, y) {
+    return placed.every(p => {
+      const dx = p.x - x;
+      const dy = p.y - y;
+      return Math.sqrt(dx * dx + dy * dy) > MIN_DISTANCE;
+    });
+  }
+
+  items.forEach(item => {
+    let x, y, tries = 0;
+
+    do {
+      x = Math.random() * W;
+      y = Math.random() * H;
+      tries++;
+    } while (!isValid(x, y) && tries < 500);
+
+    placed.push({ x, y });
+
+    item.style.left = `${x}px`;
+    item.style.top = `${y}px`;
+
+    item.style.animationDuration = `${4 + Math.random() * 3}s`;
+    item.style.animationDelay = `${Math.random() * 2}s`;
+  });
+});
+
+window.addEventListener('resize', () => location.reload());
+// ***********************background animation image code end********************************
+</script>
 
 
 </body>
