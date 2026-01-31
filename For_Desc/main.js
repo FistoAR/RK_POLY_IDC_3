@@ -233,6 +233,24 @@ const OvalContainer = [
     lightboxUrl: "../lightBox/index.html#250-ml-oval-container"
   },
   {
+    id: "ovalSemiMedium",
+    centerText: "../global assets/Images/OvalContainer/oval-400ml/oval-400ml-container-text.webp",
+     quotes: "../global assets/Images/OvalContainer/oval-400ml/center-caption.svg",
+      grade: "../global assets/Images/OvalContainer/grade.svg",
+    dimension: "../global assets/Images/OvalContainer/oval-400ml/dimension.svg",
+    weight: "../global assets/Images/OvalContainer/oval-400ml/weight.svg",
+    grossWeight: "../global assets/Images/OvalContainer/oval-400ml/gross-weight.svg",
+    cartonSize: "../global assets/Images/OvalContainer/oval-400ml/carton-size.svg",
+    cartonWeight:
+      "../global assets/Images/OvalContainer/oval-400ml/carton-weight.svg",
+    piecesPerCarton:
+      "../global assets/Images/OvalContainer/oval-400ml/pieces-per-carton.svg",
+    mainImage: "../global assets/Images/OvalContainer/oval-400ml/400-container.webp",
+    bgColor: "../global assets/Images/OvalContainer/oval-400ml/bottom-bg.webp",
+    backgroundColor: "#5AA478",
+    lightboxUrl: "../lightBox/index.html#400-ml-oval-container"
+  },
+  {
     id: "ovalMedium",
     centerText: "../global assets/Images/OvalContainer/oval-500ml/oval-500ml-container-text.webp",
      quotes: "../global assets/Images/OvalContainer/oval-500ml/center-caption.svg",
@@ -2246,7 +2264,7 @@ const SweetBox5SideIML = [
     id: "5side-250g",
     centerText: "../global assets/Images/Sweetbox-5side-iml/250g/sweet-box-250g-iml-text.svg",
     caption: "../global assets/Images/Sweetbox-5side-iml/250g/center-caption.svg",
-    grade: "../global assets/Images/Sweetbox-5side-iml/bottom-text.svg",
+    grade: "../global assets/Images/Sweetbox-5side-iml/grade.svg",
     // specification: "../global assets/Images/SweetBox-5side-iml/specifications.svg",
     dimension: "../global assets/Images/Sweetbox-5side-iml/250g/dimension.svg",
     weight: "../global assets/Images/Sweetbox-5side-iml/250g/weight.svg",
@@ -2254,7 +2272,7 @@ const SweetBox5SideIML = [
     cartonSize: "../global assets/Images/Sweetbox-5side-iml/250g/carton-size.svg",
     cartonWeight: "../global assets/Images/Sweetbox-5side-iml/250g/carton-weight.svg",
     piecesPerCarton: "../global assets/Images/Sweetbox-5side-iml/250g/pieces-per-carton.svg",
-    mainImage: "../global assets/Images/SweetBox-5side-iml/250g/sweet-box-250g-container-img.webp",
+    mainImage: "../global assets/Images/Sweetbox-5side-iml/250g/sweet-box-250g-container-img.webp",
     bgImage: "../global assets/Images/Sweetbox-5side-iml/250g/background.webp",
     nextBtn: "../global assets/Images/Sweetbox-5side-iml/next-btn.svg",
     prevBtn: "../global assets/Images/Sweetbox-5side-iml/previous-btn.svg",

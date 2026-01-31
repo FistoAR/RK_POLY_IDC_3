@@ -1572,3 +1572,35 @@
 
 
 /* **********************background animation code end*****************************  */
+
+
+/* *************************About us Page Image Animation code********************* */
+
+.image-fade-wrapper {
+  position: relative;
+}
+
+.fade-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  animation: fadeAnim 6s infinite;
+}
+
+.img-1 {
+  animation-delay: 0s;
+}
+
+.img-2 {
+  animation-delay: 3s;
+}
+
+@keyframes fadeAnim {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  40%  { opacity: 1; }
+  50%  { opacity: 1; }
+  100% { opacity: 0; }
+}
