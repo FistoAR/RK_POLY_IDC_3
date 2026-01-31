@@ -2245,19 +2245,19 @@ const SweetBox5SideIML = [
   {
     id: "5side-250g",
     centerText: "../global assets/Images/Sweetbox-5side-iml/250g/sweet-box-250g-iml-text.svg",
-    caption: "../global assets/Images/SweetBox-5side-iml/250g/center-caption.svg",
-    grade: "../global assets/Images/SweetBox-5side-iml/grade.svg",
+    caption: "../global assets/Images/Sweetbox-5side-iml/250g/center-caption.svg",
+    grade: "../global assets/Images/Sweetbox-5side-iml/bottom-text.svg",
     // specification: "../global assets/Images/SweetBox-5side-iml/specifications.svg",
-    dimension: "../global assets/Images/SweetBox-5side-iml/250g/dimension.svg",
-    weight: "../global assets/Images/SweetBox-5side-iml/250g/weight.svg",
-    grossWeight: "../global assets/Images/SweetBox-5side-iml/250g/gross-weight.svg",
-    cartonSize: "../global assets/Images/SweetBox-5side-iml/250g/carton-size.svg",
-    cartonWeight: "../global assets/Images/SweetBox-5side-iml/250g/carton-weight.svg",
-    piecesPerCarton: "../global assets/Images/SweetBox-5side-iml/250g/pieces-per-carton.svg",
+    dimension: "../global assets/Images/Sweetbox-5side-iml/250g/dimension.svg",
+    weight: "../global assets/Images/Sweetbox-5side-iml/250g/weight.svg",
+    grossWeight: "../global assets/Images/Sweetbox-5side-iml/250g/gross-weight.svg",
+    cartonSize: "../global assets/Images/Sweetbox-5side-iml/250g/carton-size.svg",
+    cartonWeight: "../global assets/Images/Sweetbox-5side-iml/250g/carton-weight.svg",
+    piecesPerCarton: "../global assets/Images/Sweetbox-5side-iml/250g/pieces-per-carton.svg",
     mainImage: "../global assets/Images/SweetBox-5side-iml/250g/sweet-box-250g-container-img.webp",
     bgImage: "../global assets/Images/Sweetbox-5side-iml/250g/background.webp",
-    nextBtn: "../global assets/Images/SweetBox-5side-iml/next-btn.svg",
-    prevBtn: "../global assets/Images/SweetBox-5side-iml/previous-btn.svg",
+    nextBtn: "../global assets/Images/Sweetbox-5side-iml/next-btn.svg",
+    prevBtn: "../global assets/Images/Sweetbox-5side-iml/previous-btn.svg",
      lightboxUrl: "../lightBox/index.html#250-gms-sweetbox-5side-container"
   },
   {
@@ -2304,9 +2304,7 @@ function sb5UpdateImages(product) {
     mainImage: "[data-sb5='mainImage']",
     bgImage: "[data-sb5='bgImage']"
   };
- if (SB5SideLightboxLink && product.lightboxUrl) {
-    SB5SideLightboxLink.href = product.lightboxUrl;
-  }
+ 
   let updated = 0;
   Object.entries(selectors).forEach(([key, selector]) => {
     const el = container.querySelector(selector);
@@ -2409,7 +2407,9 @@ function sb5ApplyAnimation() {
   }
 
   const product = SweetBox5SideIML[sb5CurrentIndex];
-
+if (SB5SideLightboxLink && product.lightboxUrl) {
+    SB5SideLightboxLink.href = product.lightboxUrl;
+  }
   // STEP 3: Wait for exit, then update images
   setTimeout(() => {
     const success = sb5UpdateImages(product);
