@@ -376,7 +376,7 @@ function applyPositions() {
 
 
 function initCarousel() {
-  console.log("Init carousel called - round");
+  // console.log("Init carousel called - round");
   createCards();
   applyPositions();
   updateContent(currentIndex, false);
@@ -543,7 +543,7 @@ function animateCurves(product) {
 }
  
 function animateContent(elements, fadeIn = true) {
-  console.log("Animate content called - round");
+  // console.log("Animate content called - round");
   elements.forEach((selector, index) => {
     const element = document.querySelector(selector);
     if (element) {
@@ -564,7 +564,7 @@ function animateContent(elements, fadeIn = true) {
 }
  
 function updateContent(index, animate = true) {
-  console.log("Update content called - round");
+  // console.log("Update content called - round");
   const product = RoundContainer[index];
   const container = document.querySelector(".page > div");
   const secondBg = document.getElementById("pageSecondColor");
@@ -626,7 +626,7 @@ function setImage(selector, src) {
 }
 
 function updateAllImages(product) {
-  console.log("Update all images called - round", product);
+  // console.log("Update all images called - round", product);
 
   setImage('[data-img="centerText"]', product.centerText);
   setImage('[data-img="quotes"]', product.quotes);
@@ -2202,8 +2202,8 @@ function initSB4Navigation() {
   const container = document.getElementById("sb4ContainerPage");
   if (!container) return;
 
-  // Load first product without animation
-  sb4UpdateImages(SweetBox4SideIML[0]);
+  // Show initial animation instead of static load
+  sb4ShowInitialAnimation();
 
   const prevBtn = document.getElementById("sb4PrevBtn");
   const nextBtn = document.getElementById("sb4NextBtn");
@@ -2228,7 +2228,76 @@ function initSB4Navigation() {
     });
   }
 
-  startSB4AutoPlay();
+  // Start autoplay after initial animation completes
+  setTimeout(() => {
+    startSB4AutoPlay();
+  }, 1500);
+}
+
+
+
+function sb4ShowInitialAnimation() {
+  const container = document.getElementById("sb4ContainerPage");
+  if (!container) return;
+
+  // Reset to first product
+  sb4CurrentIndex = 0;
+  
+  // Get all animated elements
+  const mainImage = container.querySelector("[data-sb4='mainImage']");
+  const contentElements = container.querySelectorAll(
+    "[data-sb4='centerText'], [data-sb4='caption'], [data-sb4='dimension'], [data-sb4='weight'], [data-sb4='grossWeight'], [data-sb4='cartonSize'], [data-sb4='cartonWeight'], [data-sb4='piecesPerCarton']"
+  );
+
+  const allElements = [mainImage, ...contentElements].filter(Boolean);
+
+  // 1️⃣ Set elements to invisible initially
+  allElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(-80px)'; // Start from top for content
+  });
+  
+  if (mainImage) {
+    mainImage.style.transform = 'translateY(100px)'; // Start from bottom
+  }
+
+  // 2️⃣ Load first product images
+  sb4UpdateImages(SweetBox4SideIML[0]);
+
+  // 3️⃣ Force reflow
+  void container.offsetHeight;
+
+  // 4️⃣ Animate in after brief delay
+  setTimeout(() => {
+    // Container comes from bottom
+    if (mainImage) {
+      mainImage.style.opacity = '1';
+      mainImage.classList.add('sb4-container-from-bottom');
+    }
+
+    // Content comes from top with stagger
+    contentElements.forEach((el, index) => {
+      const staggerClass = `sb4-stagger-${(index % 5) + 1}`;
+      el.style.opacity = '1';
+      el.classList.add('sb4-content-from-top', staggerClass);
+    });
+
+    // 5️⃣ Cleanup after animation
+    setTimeout(() => {
+      allElements.forEach(el => {
+        el.style.transform = '';
+        el.classList.remove(
+          'sb4-content-from-top',
+          'sb4-container-from-bottom',
+          'sb4-stagger-1',
+          'sb4-stagger-2',
+          'sb4-stagger-3',
+          'sb4-stagger-4',
+          'sb4-stagger-5'
+        );
+      });
+    }, 900);
+  }, 100);
 }
 
 // Initialize when page is visible
@@ -2242,9 +2311,9 @@ $('#flipbook').bind('turning', function (event, page, view) {
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  initSB4Navigation();
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   initSB4Navigation();
+// });
 
 
 
@@ -2516,8 +2585,8 @@ function initSB5Navigation() {
   const container = document.getElementById("sb5ContainerPage");
   if (!container) return;
 
-  // Load first product without animation
-  sb5UpdateImages(SweetBox5SideIML[0]);
+  // Show initial animation instead of static load
+  sb5ShowInitialAnimation();
 
   const prevBtn = document.getElementById("sb5PrevBtn");
   const nextBtn = document.getElementById("sb5NextBtn");
@@ -2542,8 +2611,117 @@ function initSB5Navigation() {
     });
   }
 
-  startSB5AutoPlay();
+  // Start autoplay after initial animation completes
+  setTimeout(() => {
+    startSB5AutoPlay();
+  }, 1500);
 }
+
+
+
+
+function sb5ShowInitialAnimation() {
+  const container = document.getElementById("sb5ContainerPage");
+  if (!container) return;
+
+  // Reset to first product
+  sb5CurrentIndex = 0;
+
+  // Define element positions
+  const leftElements = container.querySelectorAll(
+    "[data-sb5='dimension'], [data-sb5='weight'], [data-sb5='grossWeight']"
+  );
+  
+  const rightElements = container.querySelectorAll(
+    "[data-sb5='cartonSize'], [data-sb5='cartonWeight'], [data-sb5='piecesPerCarton']"
+  );
+  
+  const centerElement = container.querySelector("[data-sb5='mainImage']");
+  
+  const bottomElements = container.querySelectorAll(
+    "[data-sb5='centerText'], [data-sb5='caption'], [data-sb5='grade']"
+  );
+
+  const allElements = [...leftElements, ...rightElements, centerElement, ...bottomElements].filter(Boolean);
+
+  // 1️⃣ Set elements to invisible initially with appropriate transforms
+  leftElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(-100px)';
+  });
+
+  rightElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(100px)';
+  });
+
+  if (centerElement) {
+    centerElement.style.opacity = '0';
+    centerElement.style.transform = 'scale(0.5)';
+  }
+
+  bottomElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(80px)';
+  });
+
+  // 2️⃣ Load first product images
+  sb5UpdateImages(SweetBox5SideIML[0]);
+
+  // 3️⃣ Force reflow
+  void container.offsetHeight;
+
+  // 4️⃣ Animate in after brief delay
+  setTimeout(() => {
+    // Left elements come from left
+    leftElements.forEach((el, index) => {
+      const staggerClass = `sb5-stagger-${index + 1}`;
+      el.style.opacity = '1';
+      el.classList.add('sb5-left-from-left', staggerClass);
+    });
+
+    // Right elements come from right
+    rightElements.forEach((el, index) => {
+      const staggerClass = `sb5-stagger-${index + 1}`;
+      el.style.opacity = '1';
+      el.classList.add('sb5-right-from-right', staggerClass);
+    });
+
+    // Center zooms in (popup effect)
+    if (centerElement) {
+      centerElement.style.opacity = '1';
+      centerElement.classList.add('sb5-center-zoom-in', 'sb5-stagger-3');
+    }
+
+    // Bottom comes from bottom
+    bottomElements.forEach((el, index) => {
+      const staggerClass = `sb5-stagger-${index + 1}`;
+      el.style.opacity = '1';
+      el.classList.add('sb5-bottom-from-bottom', staggerClass);
+    });
+
+    // 5️⃣ Cleanup after animation
+    setTimeout(() => {
+      allElements.forEach(el => {
+        el.style.transform = '';
+        el.classList.remove(
+          'sb5-left-from-left',
+          'sb5-right-from-right',
+          'sb5-center-zoom-in',
+          'sb5-bottom-from-bottom',
+          'sb5-stagger-1',
+          'sb5-stagger-2',
+          'sb5-stagger-3',
+          'sb5-stagger-4',
+          'sb5-stagger-5',
+          'sb5-stagger-6'
+        );
+      });
+    }, 1100);
+  }, 100);
+}
+
+
 
 // Initialize when page is visible
 $('#flipbook').bind('turning', function (event, page, view) {
@@ -2559,9 +2737,10 @@ $('#flipbook').bind('turning', function (event, page, view) {
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  initSB5Navigation();
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   initSB5Navigation();
+  
+// });
 
 
 
