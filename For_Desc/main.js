@@ -134,7 +134,7 @@ const RoundSquareContainer = [
       "../global assets/Images/RoundSquareContainer/300ml/PiecesPerCarton.svg",
     mainImage:
       "../global assets/Images/RoundSquareContainer/300ml/round-square-container-300ml.webp",
-    bgColorRS: "#FF7904",
+    bgColorRS: "#634380",
     prev: "../global assets/Images/RoundSquareContainer/300ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/300ml/next.svg",
      lightboxUrl: "../lightBox/index.html#300-ml-round-sqare-container" 
@@ -157,7 +157,7 @@ const RoundSquareContainer = [
       "../global assets/Images/RoundSquareContainer/500ml/PiecesPerCarton.svg",
     mainImage:
       "../global assets/Images/RoundSquareContainer/500ml/round-square-container-500ml.webp",
-    bgColorRS: "#361269",
+    bgColorRS: "#FF9045",
     prev: "../global assets/Images/RoundSquareContainer/500ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/500ml/next.svg",
      lightboxUrl: "../lightBox/index.html#500-ml-round-sqare-container"
@@ -180,7 +180,7 @@ const RoundSquareContainer = [
       "../global assets/Images/RoundSquareContainer/750ml/PiecesPerCarton.svg",
     mainImage:
       "../global assets/Images/RoundSquareContainer/750ml/round-square-container-750ml.webp",
-    bgColorRS: "#99008F",
+    bgColorRS: "#A24E9C",
     prev: "../global assets/Images/RoundSquareContainer/750ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/750ml/next.svg",
      lightboxUrl: "../lightBox/index.html#750-ml-round-sqare-container"
@@ -203,7 +203,7 @@ const RoundSquareContainer = [
       "../global assets/Images/RoundSquareContainer/1000ml/PiecesPerCarton.svg",
     mainImage:
       "../global assets/Images/RoundSquareContainer/1000ml/round-square-container-1000ml.webp",
-    bgColorRS: "#8E771B",
+    bgColorRS: "#C4A837",
     prev: "../global assets/Images/RoundSquareContainer/1000ml/prev.svg",
     next: "../global assets/Images/RoundSquareContainer/1000ml/next.svg",
      lightboxUrl: "../lightBox/index.html#1000-ml-round-sqare-container"
@@ -220,6 +220,7 @@ const OvalContainer = [
     centerText: "../global assets/Images/OvalContainer/oval-250ml/oval-250ml-container-text.webp",
      quotes: "../global assets/Images/OvalContainer/oval-250ml/center-caption.svg",
      grade: "../global assets/Images/OvalContainer/grade.svg",
+     colors: "../global assets/Images/OvalContainer/colors.svg",
     dimension: "../global assets/Images/OvalContainer/oval-250ml/dimention.svg",
     weight: "../global assets/Images/OvalContainer/oval-250ml/weight.svg",
     grossWeight: "../global assets/Images/OvalContainer/oval-250ml/gross-weight.svg",
@@ -229,7 +230,7 @@ const OvalContainer = [
       "../global assets/Images/OvalContainer/oval-250ml/pieces-per-carton.svg",
     mainImage: "../global assets/Images/OvalContainer/oval-250ml/250-container.webp",
     bgColor: "../global assets/Images/OvalContainer/oval-250ml/bottom-bg.webp",
-    backgroundColor: "#A64210",
+    backgroundColor: "#B35F35",
     lightboxUrl: "../lightBox/index.html#250-ml-oval-container"
   },
   {
@@ -237,6 +238,7 @@ const OvalContainer = [
     centerText: "../global assets/Images/OvalContainer/oval-400ml/oval-400ml-container-text.webp",
      quotes: "../global assets/Images/OvalContainer/oval-400ml/center-caption.svg",
       grade: "../global assets/Images/OvalContainer/grade.svg",
+      colors: "../global assets/Images/OvalContainer/colors.svg",
     dimension: "../global assets/Images/OvalContainer/oval-400ml/dimension.svg",
     weight: "../global assets/Images/OvalContainer/oval-400ml/weight.svg",
     grossWeight: "../global assets/Images/OvalContainer/oval-400ml/gross-weight.svg",
@@ -255,6 +257,7 @@ const OvalContainer = [
     centerText: "../global assets/Images/OvalContainer/oval-500ml/oval-500ml-container-text.webp",
      quotes: "../global assets/Images/OvalContainer/oval-500ml/center-caption.svg",
       grade: "../global assets/Images/OvalContainer/grade.svg",
+      colors: "../global assets/Images/OvalContainer/colors.svg",
     dimension: "../global assets/Images/OvalContainer/oval-500ml/dimension.svg",
     weight: "../global assets/Images/OvalContainer/oval-500ml/weight.svg",
     grossWeight: "../global assets/Images/OvalContainer/oval-500ml/gross-weight.svg",
@@ -265,7 +268,7 @@ const OvalContainer = [
       "../global assets/Images/OvalContainer/oval-500ml/pieces-per-carton.svg",
     mainImage: "../global assets/Images/OvalContainer/oval-500ml/500-container.webp",
     bgColor: "../global assets/Images/OvalContainer/oval-500ml/bottom-bg.webp",
-    backgroundColor: "#6A8E1B",
+    backgroundColor: "#9A5454",
     lightboxUrl: "../lightBox/index.html#500-ml-oval-container"
   },
   {
@@ -273,6 +276,7 @@ const OvalContainer = [
     centerText: "../global assets/Images/OvalContainer/oval-1000ml/oval-1000ml-container-text.webp",
      quotes: "../global assets/Images/OvalContainer/oval-1000ml/center-caption.svg",
       grade: "../global assets/Images/OvalContainer/grade.svg",
+      colors: "../global assets/Images/OvalContainer/colors.svg",
     dimension: "../global assets/Images/OvalContainer/oval-1000ml/dimension.svg",
     weight: "../global assets/Images/OvalContainer/oval-1000ml/weight.svg",
     grossWeight: "../global assets/Images/OvalContainer/oval-1000ml/gross-weight.svg",
@@ -283,7 +287,7 @@ const OvalContainer = [
       "../global assets/Images/OvalContainer/oval-1000ml/pieces-per-carton.svg",
     mainImage: "../global assets/Images/OvalContainer/oval-1000ml/1000-container.webp",
     bgColor: "../global assets/Images/OvalContainer/oval-1000ml/bottom-bg.webp",
-    backgroundColor: "#1C8A88",
+    backgroundColor: "#4BA4A2",
     lightboxUrl: "../lightBox/index.html#1000-ml-oval-container"
   },
 
@@ -1034,6 +1038,7 @@ function ovalUpdateImages(product) {
   const centerText = container.querySelector('[data-oval="centerText"]');
   const quotes = container.querySelector('[data-oval="quotes"]');
   const grade = container.querySelector('[data-oval="grade"]');
+  const colors = container.querySelector('[data-oval="colors"]');
   const dimension = container.querySelector('[data-oval="dimension"]');
   const weight = container.querySelector('[data-oval="weight"]');
   const grossWeight = container.querySelector('[data-oval="grossWeight"]');
@@ -1054,6 +1059,7 @@ function ovalUpdateImages(product) {
   if (centerText) centerText.src = product.centerText;
   if (quotes) quotes.src = product.quotes;
   if (grade) grade.src = product.grade;
+  if (colors) colors.src = product.colors;
   if (dimension) dimension.src = product.dimension;
   if (weight) weight.src = product.weight;
   if (grossWeight) grossWeight.src = product.grossWeight;
