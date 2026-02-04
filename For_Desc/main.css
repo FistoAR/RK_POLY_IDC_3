@@ -1556,6 +1556,9 @@
   .float-item {
     width: 40px;
   }
+  .image-fade-wrapper{
+    height: 27% !important ;
+  }
 }
 
 @keyframes floatSoft {
@@ -1577,7 +1580,7 @@
 /* *************************About us Page Image Animation code********************* */
 
 .image-fade-wrapper {
-  position: relative;
+  position: absolute;
 }
 
 .fade-img {
@@ -1604,3 +1607,5 @@
   50%  { opacity: 1; }
   100% { opacity: 0; }
 }
+
+

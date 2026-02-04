@@ -2848,29 +2848,6 @@ linkRound.addEventListener('touchend', () => {
   // .addEventListener('touchend', function () {
   //   window.open(this.href, '_blank');
   // });
-// 🔥 CONTACT PAGE MOBILE CLICK FIX
-document.addEventListener("DOMContentLoaded", function () {
-
-  // 1️⃣ Disable pointer events for all images (backgrounds)
-  // document.querySelectorAll('.page img').forEach(img => {
-  //   img.style.pointerEvents = 'none';
-  // });
-
-  // 2️⃣ Enable pointer events ONLY for clickable elements
-  document.querySelectorAll(
-    ' #locationBtn1, #locationBtn, .popup_images10, #instagram, #facebook, #youtube, #website, #fisto'
-  ).forEach(el => {
-    el.style.pointerEvents = 'auto';
-    el.style.touchAction = 'manipulation';
-    el.style.zIndex = '9999';
-
-    // Stop flipbook swipe from blocking taps
-    el.addEventListener('touchstart', e => {
-      e.stopPropagation();
-    }, { passive: true });
-  });
-
-});
 
 
 
@@ -2929,3 +2906,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener('resize', () => location.reload());
 // ***********************background animation image code end********************************
+
+
+
+
+
+
+
+// 🔥 CONTACT PAGE MOBILE CLICK FIX
+document.addEventListener("DOMContentLoaded", function () {
+
+  // 1️⃣ Disable pointer events for all images (backgrounds)
+  // document.querySelectorAll('.page img').forEach(img => {
+  //   img.style.pointerEvents = 'none';
+  // });
+
+  // 2️⃣ Enable pointer events ONLY for clickable elements
+  document.querySelectorAll(
+    ' #locationBtn1, #locationBtn, .popup_images10, #instagram, #facebook, #youtube, #website, #fisto'
+  ).forEach(el => {
+    el.style.pointerEvents = 'auto';
+    el.style.touchAction = 'manipulation';
+    el.style.zIndex = '9999';
+   
+    // Stop flipbook swipe from blocking taps
+    el.addEventListener('touchstart', e => {
+      e.stopPropagation();
+    }, { passive: true });
+  });
+
+});

@@ -516,14 +516,15 @@ const closeSearchModal = document.getElementById('closeSearchModal');
 const pages = [
     { page: 1, title: "Home page", keywords: ["cover", "front", "home", "title", "rkpoly", "1" , ""] },
     { page: 2, title: "Introduction", keywords: ["intro", "introduction", "about us", "2"] },
-    { page: 3, title: "Chapter 1", keywords: ["chapter 1", "getting started", "3", "table of content"] },
-    { page: 4, title: "Chapter 2", keywords: ["chapter 2", "features", "4","5", "round containers"] },
-    { page: 6, title: "Chapter 3", keywords: ["chapter 3", "examples", "6","7", "round square containers"] },
-    { page: 8, title: "Introduction", keywords: ["intro", "introduction", "about", "8","9", "oval containers"] },
-    { page: 10, title: "Chapter 1", keywords: ["chapter 1", "getting started", "10","11", "sweet box containers"] },
-    { page: 12, title: "Chapter 2", keywords: ["chapter 2", "features", "12","13", "sweet box 5 side iml container"] },
-    { page: 14, title: "Chapter 3", keywords: ["chapter 3", "examples", "14","15", "tub containers"] },
-    { page: 16, title: "Conclusion", keywords: ["conclusion", "end", "summary", "16", "contact us"] },
+    { page: 3, title: "Chapter 1", keywords: [ "3", "table of content"] },
+    { page: 4, title: "Chapter 2", keywords: [ "4","5", "round containers"] },
+    { page: 6, title: "Chapter 3", keywords: [ "6","7", "round square containers"] },
+    { page: 8, title: "Introduction", keywords: [ "8","9", "oval containers"] },
+    { page: 10, title: "Chapter 1", keywords: [ "10","11", "sweet box containers"] },
+    { page: 12, title: "Chapter 2", keywords: [ "12","13", "sweet box lid & bottom 4 side IML container"] },
+    { page: 14, title: "Chapter 2", keywords: [ "14","15", "sweet box lid & bottom 5 side IML Container"] },
+    { page: 16, title: "Chapter 3", keywords: [ "16","17", "tamper evident sweet box containers"] },
+    { page: 18, title: "Conclusion", keywords: ["conclusion", "end", "18", "contact us"] },
 ];
 
 // ✅ CLOSE SEARCH FUNCTION
