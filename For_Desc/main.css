@@ -1609,3 +1609,25 @@
 }
 
 
+/* mobile screen shadow code  */
+
+
+/* Mobile screens only */
+@media (max-width: 767px) {
+  .mobile-left-shadow {
+    position: absolute;
+    left: -6%;
+    top: -9%;
+    height: 112%;
+    width: 16%;
+    z-index: 1111;
+    pointer-events: none;
+  }
+}
+
+/* Hide on tablet & desktop */
+@media (min-width: 768px) {
+  .mobile-left-shadow {
+    display: none;
+  }
+}
