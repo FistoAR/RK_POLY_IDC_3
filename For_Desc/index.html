@@ -2526,7 +2526,7 @@ if (page === 14) {  // ✅ Only on FIRST page of spread
 
   </script>
 
-  <script>
+  <!-- <script>
     document.getElementById("locationBtn").addEventListener("click", () => {
       // Replace with your actual Google Maps link
       window.open("https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.779695019329!2d76.909998475046!3d11.055137189111113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85f551c1f3621%3A0x48aaa15e42d06da5!2sRK%20Poly%20Products!5e0!3m2!1sen!2sin!4v1766144947439!5m2!1sen!2sin", "_blank");
@@ -2538,7 +2538,26 @@ if (page === 14) {  // ✅ Only on FIRST page of spread
       // Replace with your actual Google Maps link
       window.open("https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.779695019329!2d76.909998475046!3d11.055137189111113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85f551c1f3621%3A0x48aaa15e42d06da5!2sRK%20Poly%20Products!5e0!3m2!1sen!2sin!4v1766144947439!5m2!1sen!2sin", "_blank");
     });
-  </script>
+  </script> -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    
+    const mapUrl =
+      `https://maps.app.goo.gl/Qm3e1EhThXrHY1RZ6`;
+
+    const buttons = ["locationBtn", "locationBtn1"];
+
+    buttons.forEach(id => {
+      const btn = document.getElementById(id);
+      if (btn) {
+        btn.addEventListener("click", () => {
+          window.open(mapUrl, "_blank");
+        });
+      }
+    });
+  });
+</script>
+
 
   <!-- <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.2.0/model-viewer.min.js  "></script>  -->
     
