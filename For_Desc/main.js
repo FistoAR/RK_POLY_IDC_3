@@ -1724,6 +1724,23 @@ const TubContainer = [
     nextBtn: "../global assets/Images/TubContainer/tub-500-next-btn.svg",
     prevBtn: "../global assets/Images/TubContainer/tub-500-prev-btn.svg",
      lightboxUrl: "../lightBox/index.html#500-gms-tub-container"
+  },
+  {
+    id: "tub1000g",
+    centerText: "../global assets/Images/TubContainer/tub-container-1000g/tub-container-1000g-text.webp",
+    caption: "../global assets/Images/TubContainer/tub-container-1000g/caption.svg",
+    grade: "../global assets/Images/TubContainer/tub-container-500g/grade.svg",
+    dimension: "../global assets/Images/TubContainer/tub-container-1000g/dimension.svg",
+    weight: "../global assets/Images/TubContainer/tub-container-1000g/weight.svg",
+    grossWeight: "../global assets/Images/TubContainer/tub-container-1000g/gross-weight.svg",
+    cartonSize: "../global assets/Images/TubContainer/tub-container-1000g/carton-size.svg",
+    cartonWeight: "../global assets/Images/TubContainer/tub-container-1000g/carton-weight.svg",
+    piecesPerCarton: "../global assets/Images/TubContainer/tub-container-1000g/pieces-per-carton.svg",
+    mainImage: "../global assets/Images/TubContainer/tub-container-1000g/tub-container-1000g-container-img.webp",
+    topBg: "../global assets/Images/TubContainer/tub-container-1000g/top-bg.webp",
+    nextBtn: "../global assets/Images/TubContainer/tub-1000-next-btn.svg",
+    prevBtn: "../global assets/Images/TubContainer/tub-1000-prev-btn.svg",
+    lightboxUrl: "../lightBox/index.html#1000-gms-tub-container"
   }
 ];
  

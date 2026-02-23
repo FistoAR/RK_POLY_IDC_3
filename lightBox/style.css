@@ -5,3 +5,46 @@
 }
 
 
+/* CSS */
+.model-toggle-btns {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.toggle-btn {
+  padding: 8px 28px;
+  border: 2px solid #333;
+  border-radius: 30px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.25s, background 0.25s, color 0.25s;
+  letter-spacing: 0.5px;
+}
+
+.toggle-btn.active {
+  background: #ececec;
+  color: #302f2f;
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: default;
+}
+
+.toggle-btn:not(.active) {
+  opacity: 1;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .toggle-btn {
+    padding: 7px 20px;
+    font-size: 12px;
+  }
+}
