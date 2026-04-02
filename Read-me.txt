@@ -2,3 +2,49 @@
 Eleven labs - Link = https://elevenlabs.io/app/speech-synthesis/text-to-speech
 
 Female Voice - Parul - Warm, Calm and Confident
+
+
+
+    <div id="preloader">
+        <!-- Animated Particles Background -->
+        <div class="particles" id="particles"></div>
+
+        <div class="preloader-content">
+            <!-- Logo -->
+            <div class="logo-container">
+                <img src="./global assets/Images/AboutusPage/RK-Poly-logo.webp" alt="RK Poly Logo" class="logo-image">
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline-container">
+                <div class="timeline-track">
+                    <div class="timeline-progress" id="timelineProgress"></div>
+                </div>
+
+                <div class="timeline-milestones ">
+                    <div class="milestone">
+                        <div class="milestone-dot" id="milestone1"></div>
+                        <div class="milestone-label" id="label1">Initializing</div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot" id="milestone2"></div>
+                        <div class="milestone-label" id="label2">Loading Assets</div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot" id="milestone3"></div>
+                        <div class="milestone-label" id="label3">Loading Images</div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot" id="milestone4"></div>
+                        <div class="milestone-label" id="label4">Ready</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Info -->
+            <div class="loading-info">
+                <div class="loading-percentage" id="loadingPercentage">0%</div>
+                <div class="loading-status" id="loadingStatus">Starting...</div>
+            </div>
+        </div>
+    </div>
