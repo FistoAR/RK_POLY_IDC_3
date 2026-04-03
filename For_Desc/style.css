@@ -1621,3 +1621,76 @@
 }
 
 /* *******************************home page animation end**************************** */
+
+/* ************** ROund Square Right side product Page Floating Animation start****************  */
+
+
+@keyframes float1 {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes float2 {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes float3 {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-14px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes float4 {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+[float1] { animation: float1 4s ease-in-out infinite; }
+[float2] { animation: float2 5s ease-in-out infinite; }
+[float3] { animation: float3 6s ease-in-out infinite; }
+[float4] { animation: float4 4.5s ease-in-out infinite; }
+
+
+
+/* ************** ROund Square Right side product Page Floating Animation end****************  */
+
+
+@keyframes float1 {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes float2 {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes float3 {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-14px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes float4 {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes float5 {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-11px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes float6 {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-9px); }
+  100% { transform: translateY(0px); }
+}
