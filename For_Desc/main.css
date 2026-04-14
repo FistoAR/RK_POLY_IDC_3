@@ -1547,7 +1547,7 @@
 .float-item {
   position: absolute;
   width: 60px;
-  opacity: 0.35;
+  opacity: 0.8;
 
   animation: floatSoft ease-in-out infinite;
 }
