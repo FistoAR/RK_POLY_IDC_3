@@ -416,7 +416,7 @@ input[type="number"]:focus {
 </div>
 
 
-<img src="../global assets/icons/full-screen-icon.svg" alt="full-screen-icon" id="full-screen-btn" class="absolute bottom-[0%] right-[2%] cursor-pointer w-[2vw] h-[2vw] full-screen  z-[910]" style="transform: translateY(-50%);"/>
+<img src="../global assets/icons/full-screen-icon.svg" alt="full-screen-icon" id="full-screen-btn" class="absolute bottom-[0%] right-[2%] cursor-pointer w-[2vw] h-[2vw] full-screen  z-[910]" style="transform: translateY(-50%); filter: brightness(0);" />
 
 
 
@@ -429,11 +429,11 @@ input[type="number"]:focus {
             <line x1="7" y1="11" x2="15" y2="11"/>
             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg> -->
-        <img src="../global assets/icons/zoom-out-icon.svg" title="zoom out" class="w-[1.5vw]"/>
+        <img src="../global assets/icons/zoom-out-icon.svg" title="zoom out" class="w-[1.5vw]" style="filter: brightness(0);"/>
     </button>
     
     <input type="range" id="zoomSlider" min="50" max="150" value="100" step="10" class="zoom-slider hidden" />
-     <span id="zoomPercentage" class="zoom-percentage">100%</span>
+     <span id="zoomPercentage" class="zoom-percentage text-black">100%</span>
     <button id="zoomInBtn" class="zoom-btn" title="Zoom In">
         <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"/>
@@ -441,7 +441,7 @@ input[type="number"]:focus {
             <line x1="7" y1="11" x2="15" y2="11"/>
             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg> -->
-        <img src="../global assets/icons/zoom-in-icon.svg" title="zoom in" class="w-[1.5vw]"/>
+        <img src="../global assets/icons/zoom-in-icon.svg" title="zoom in" class="w-[1.5vw]" style="filter: brightness(0);"/>
     </button>
     
    
@@ -449,7 +449,7 @@ input[type="number"]:focus {
 
 
 
-<div class="absolute bottom-[1%] left-[2%] font-inter font-small text text-white  text-[1vw]  z-[91] page-no" style="transform: translateY(-50%);">
+<div class="absolute bottom-[1%] left-[2%] font-inter font-small text text-black  text-[1vw]  z-[91] page-no" style="transform: translateY(-50%);">
   <p>Page <span id="page-no"></span></p>
 </div>
     <div id="viewer">
@@ -1641,10 +1641,10 @@ input[type="number"]:focus {
 
 
         <a ignore="1" class="ui-arrow-control ui-arrow-next-page next-arrow" >
-          <img src="../global assets/icons/next-page-icon.svg" class="z-1111"/>
+          <img src="../global assets/icons/next-page-icon.svg" class="z-1111" style="filter: brightness(0);"/>
         </a>
         <a ignore="1" class="ui-arrow-control ui-arrow-previous-page prev-arrow">
-          <img src="../global assets/icons/previous-page.svg" class="1111"/>
+          <img src="../global assets/icons/previous-page.svg" class="z-1111" style="filter: brightness(0);"/>
         </a>
 
        

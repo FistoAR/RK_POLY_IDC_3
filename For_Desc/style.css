@@ -982,7 +982,7 @@
 
 /* Zoom Percentage Display */
 .zoom-percentage {
-    color: white;
+    color: rgb(46, 45, 45);
     font-size: 1vw;
     font-weight: 600;
     min-width: 45px;
